@@ -14,7 +14,7 @@ exports.handler = async (event) => {
         let resp_cmd = await client.send(command);
         console.log('log streams ' + JSON.stringify(resp_cmd.logStreams));
         nextToken = resp_cmd.nextToken;
-        logStreams.concat(resp_cmd.logStreams);
+        logStreams = logStreams.concat(resp_cmd.logStreams);
     } while (nextToken != null);
 
     if (logStreams.length > 0) {
